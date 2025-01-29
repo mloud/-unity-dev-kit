@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace OneDay.Core.Game.BehaviourTree
+namespace OneDay.Core.Game.Ai
 {
     public enum NodeState
     {
@@ -14,28 +14,28 @@ namespace OneDay.Core.Game.BehaviourTree
     public abstract class Node
     {
         public Node Parent { get; private set; }
-        public Tree BehaviourTree { get; }
+        public BehaviourTree BehaviourBehaviourTree { get; }
         public IReadOnlyList<Node> Children => children;
 
         protected NodeState state;
         protected List<Node> children = new();
 
-        protected Node(Tree tree)
+        protected Node(BehaviourTree behaviourTree)
         {
             Parent = null;
-            BehaviourTree = tree;
+            BehaviourBehaviourTree = behaviourTree;
         }
 
         protected TreeContext GetTreeContext()
         {
-            if (BehaviourTree != null)
-                return BehaviourTree.DataContext;
+            if (BehaviourBehaviourTree != null)
+                return BehaviourBehaviourTree.DataContext;
            
             var node = Parent;
             while (node != null)
             {
-                if (node.BehaviourTree != null)
-                    return node.BehaviourTree.DataContext;
+                if (node.BehaviourBehaviourTree != null)
+                    return node.BehaviourBehaviourTree.DataContext;
 
                 node = node.Parent;
             }
@@ -43,9 +43,9 @@ namespace OneDay.Core.Game.BehaviourTree
             return null;
         }
         
-        protected Node(List<Node> children, Tree tree)
+        protected Node(List<Node> children, BehaviourTree behaviourTree)
         {
-            BehaviourTree = tree;
+            BehaviourBehaviourTree = behaviourTree;
             state = NodeState.Ready;
             foreach (var node in children)
             {
@@ -87,7 +87,7 @@ namespace OneDay.Core.Game.BehaviourTree
             }
             
             state = OnEvaluate();
-            Debug.Log($"[BT] Tree: {BehaviourTree.Id} OnEvaluate of {this.GetType()} is  {state}");
+            Debug.Log($"[BT] Tree: {BehaviourBehaviourTree.Id} OnEvaluate of {this.GetType()} is  {state}");
             Debug.Assert(state != NodeState.Ready, "Node should not return Ready state");
             switch (state)
             {

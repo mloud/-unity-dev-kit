@@ -1,8 +1,8 @@
 using UnityEngine;
 
-namespace OneDay.Core.Game.BehaviourTree
+namespace OneDay.Core.Game.Ai
 {
-    public abstract class Tree : MonoBehaviour
+    public abstract class BehaviourTree : MonoBehaviour
     {
         public string Id { get; protected set; }
         public TreeContext DataContext { get; private set; }

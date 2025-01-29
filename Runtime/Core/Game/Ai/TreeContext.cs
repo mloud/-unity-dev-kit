@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace OneDay.Core.Game.BehaviourTree
+namespace OneDay.Core.Game.Ai
 {
     public class TreeContext
     {

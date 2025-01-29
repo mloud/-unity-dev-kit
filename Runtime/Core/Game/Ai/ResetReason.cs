@@ -1,4 +1,4 @@
-namespace OneDay.Core.Game.BehaviourTree
+namespace OneDay.Core.Game.Ai
 {
     public enum ResetReason
     {

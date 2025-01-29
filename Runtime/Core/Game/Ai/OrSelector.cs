@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 
-namespace OneDay.Core.Game.BehaviourTree
+namespace OneDay.Core.Game.Ai
 {
     public class OrSelector : Node
     {
         private bool continueAfterSuccess;
 
-        public OrSelector(List<Node> children, Tree tree, bool continueAfterSuccess = false) 
-            : base(children, tree)
+        public OrSelector(List<Node> children, BehaviourTree behaviourTree, bool continueAfterSuccess = false) 
+            : base(children, behaviourTree)
         {
             this.continueAfterSuccess = continueAfterSuccess;
         }
