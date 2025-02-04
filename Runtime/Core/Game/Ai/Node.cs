@@ -87,7 +87,7 @@ namespace OneDay.Core.Game.Ai
             }
             
             state = OnEvaluate();
-            Debug.Log($"[BT] Tree: {BehaviourBehaviourTree.Id} OnEvaluate of {this.GetType()} is  {state}");
+            //Debug.Log($"[BT] Tree: {BehaviourBehaviourTree.Id} OnEvaluate of {this.GetType()} is  {state}");
             Debug.Assert(state != NodeState.Ready, "Node should not return Ready state");
             switch (state)
             {
