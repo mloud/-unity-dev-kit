@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OneDay.Core.Game.Ai
 {
@@ -8,6 +9,12 @@ namespace OneDay.Core.Game.Ai
 
         public OrSelector(List<Node> children, BehaviourTree behaviourTree, bool continueAfterSuccess = false) 
             : base(children, behaviourTree)
+        {
+            this.continueAfterSuccess = continueAfterSuccess;
+        }
+        
+        public OrSelector(BehaviourTree behaviourTree, bool continueAfterSuccess, params Node[] children) 
+            : base(children.ToList(), behaviourTree)
         {
             this.continueAfterSuccess = continueAfterSuccess;
         }

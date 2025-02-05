@@ -1,10 +1,15 @@
 using System.Collections.Generic;
+using System.Linq;
 
 namespace OneDay.Core.Game.Ai
 {
     public class AndSequence : Node
     {
-        public AndSequence(List<Node> children, BehaviourTree behaviourTree) : base(children, behaviourTree) { }
+        public AndSequence(List<Node> children, BehaviourTree behaviourTree) 
+            : base(children, behaviourTree) { }
+        
+        public AndSequence(BehaviourTree behaviourTree, params Node[] children)
+            : base(children.ToList(), behaviourTree) { }
 
         protected override NodeState OnEvaluate()
         {
