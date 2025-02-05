@@ -5,7 +5,7 @@ namespace OneDay.Core.Game.Ai
     public abstract class BehaviourTree : MonoBehaviour
     {
         public string Id { get; protected set; }
-        public TreeContext DataContext { get; private set; }
+        public TreeContext DataContext { get; private set; } = new();
         public void SetActiveNode(Node node) => activeNode = node;
         
         private Node root;
@@ -14,7 +14,6 @@ namespace OneDay.Core.Game.Ai
         
         private void Start()
         {
-            DataContext = new TreeContext();
             root = SetupTree();
         }
         
