@@ -5,7 +5,7 @@ namespace OneDay.Core.Game.Ai
         private readonly Node childNode;
         private bool finished;
 
-        public RunOnce(Node nodeToCheck, BehaviourTree behaviourTree) : base(behaviourTree)
+        public RunOnce(Node nodeToCheck)
         {
             finished = false;
             childNode = nodeToCheck;

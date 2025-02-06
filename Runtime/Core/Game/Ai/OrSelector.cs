@@ -1,20 +1,11 @@
-using System.Collections.Generic;
-using System.Linq;
-
 namespace OneDay.Core.Game.Ai
 {
     public class OrSelector : Node
     {
         private bool continueAfterSuccess;
-
-        public OrSelector(List<Node> children, BehaviourTree behaviourTree, bool continueAfterSuccess = false) 
-            : base(children, behaviourTree)
-        {
-            this.continueAfterSuccess = continueAfterSuccess;
-        }
-        
-        public OrSelector(BehaviourTree behaviourTree, bool continueAfterSuccess, params Node[] children) 
-            : base(children.ToList(), behaviourTree)
+ 
+        public OrSelector(bool continueAfterSuccess, params Node[] children) 
+            : base(children)
         {
             this.continueAfterSuccess = continueAfterSuccess;
         }

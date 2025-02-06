@@ -6,7 +6,7 @@ namespace OneDay.Core.Game.Ai
         private bool hasCheckedOnce;
         private NodeState cachedResult = NodeState.Ready;
 
-        public CheckOnce(Node nodeToCheck, BehaviourTree behaviourTree) : base(behaviourTree)
+        public CheckOnce(Node nodeToCheck)
         {
             childNode = nodeToCheck;
             Attach(nodeToCheck);

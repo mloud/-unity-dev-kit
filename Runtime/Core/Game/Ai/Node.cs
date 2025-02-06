@@ -19,13 +19,7 @@ namespace OneDay.Core.Game.Ai
 
         protected NodeState state;
         protected List<Node> children = new();
-
-        protected Node(BehaviourTree behaviourTree)
-        {
-            Parent = null;
-            BehaviourBehaviourTree = behaviourTree;
-        }
-        
+  
         protected Node()
         {
             Parent = null;
@@ -55,9 +49,8 @@ namespace OneDay.Core.Game.Ai
             return null;
         }
         
-        protected Node(List<Node> children, BehaviourTree behaviourTree)
+        protected Node(params Node[] children)
         {
-            BehaviourBehaviourTree = behaviourTree;
             state = NodeState.Ready;
             foreach (var node in children)
             {
