@@ -14,7 +14,7 @@ namespace OneDay.Core.Game.Ai
     public abstract class Node
     {
         public Node Parent { get; private set; }
-        public BehaviourTree BehaviourBehaviourTree { get; }
+        public BehaviourTree BehaviourBehaviourTree { get; private set; }
         public IReadOnlyList<Node> Children => children;
 
         protected NodeState state;
@@ -25,7 +25,19 @@ namespace OneDay.Core.Game.Ai
             Parent = null;
             BehaviourBehaviourTree = behaviourTree;
         }
+        
+        protected Node()
+        {
+            Parent = null;
+            BehaviourBehaviourTree = null;
+        }
 
+        public void SetBehaviourTree(BehaviourTree tree)
+        {
+            BehaviourBehaviourTree = tree;
+            children.ForEach(x=>SetBehaviourTree(tree));
+        }
+        
         protected TreeContext GetTreeContext()
         {
             if (BehaviourBehaviourTree != null)
