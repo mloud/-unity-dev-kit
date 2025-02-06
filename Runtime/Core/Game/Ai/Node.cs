@@ -29,7 +29,7 @@ namespace OneDay.Core.Game.Ai
         public void SetBehaviourTree(BehaviourTree tree)
         {
             BehaviourBehaviourTree = tree;
-            children.ForEach(x=>SetBehaviourTree(tree));
+            children.ForEach(x=>x.SetBehaviourTree(tree));
         }
         
         protected TreeContext GetTreeContext()
