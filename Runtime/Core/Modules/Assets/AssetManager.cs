@@ -53,5 +53,13 @@ namespace OneDay.Core.Modules.Assets
             }
         }
         public T GetReference() => (T)Handle.Result;
+        
+        ~AddressableAsset()
+        {
+            if (Handle.IsValid())
+            {
+                Addressables.Release(Handle);
+            }
+        }
     }
 }
