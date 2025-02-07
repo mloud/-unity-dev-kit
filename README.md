@@ -21,10 +21,15 @@ Add also these packages to your project's `manifest.json`:
  "com.unity.addressables": "1.22.3",
  "com.benoitfreslon.vibration": "https://github.com/BenoitFreslon/Vibration.git",
  "com.unity.purchasing": "4.12.2",
+ "com.google.firebase.remote-config": "https://github.com/firebase-unity/firebase-remote-config.git#12.5.0",
+ "com.google.firebase.app": "https://github.com/firebase-unity/firebase-app.git#12.5.0",
+ "com.google.external-dependency-manager": "https://github.com/googlesamples/unity-jar-resolver.git?path=upm#v1.2.183"
 
 
 # add firebase
 https://dl.google.com/firebase/sdk/unity/dotnet4/FirebaseAnalytics_12.5.0.unitypackage
+https://dl.google.com/firebase/sdk/unity/dotnet4/FirebaseRemoteConfig_12.5.0.unitypackage
+
 #or
 https://dl.google.com/games/registry/unity/com.google.firebase.analytics/com.google.firebase.analytics-12.5.0.tgz
 
