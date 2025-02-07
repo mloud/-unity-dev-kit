@@ -1,3 +1,4 @@
+#if USE_FIREBASE_ANALYTICS
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Firebase;
@@ -72,3 +73,4 @@ namespace OneDay.Core.Modules.Analytics
         }
     }
 }
+#endif

@@ -1,3 +1,4 @@
+#if USE_FIREBASE_REMOTE_CONFIG
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Firebase.RemoteConfig;
@@ -57,3 +58,4 @@ namespace OneDay.Core.Modules.Analytics
         }
     }
 }
+#endif
