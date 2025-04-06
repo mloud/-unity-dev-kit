@@ -1,6 +1,6 @@
 using Cysharp.Threading.Tasks;
 
-namespace Core.Scripts.Modules.Ui
+namespace Core.Modules.Ui.Loading
 {
     public interface ILoading
     {

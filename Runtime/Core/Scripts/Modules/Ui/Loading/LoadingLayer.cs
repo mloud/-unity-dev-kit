@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Core.Scripts.Modules.Ui
+namespace Core.Modules.Ui.Loading
 {
     public class LoadingLayer : UiElement, ILoading, IService
     {
