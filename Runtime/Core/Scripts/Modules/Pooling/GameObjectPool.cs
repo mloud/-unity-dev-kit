@@ -21,6 +21,9 @@ namespace OneDay.Core.Modules.Pooling
             this.prefabAsset = prefabAsset;
             this.poolRoot = poolRoot;
             
+            // deactivate prefab
+            this.prefabAsset.GetReference().gameObject.SetActive(false);
+            
             var folderName = $"Pool-{addressableKey.Replace('/', '_')}";
             poolFolder = new GameObject(folderName).transform;
             poolFolder.SetParent(poolRoot);
