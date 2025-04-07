@@ -69,23 +69,17 @@ namespace OneDay.Core.Modules.Pooling
         
         public async UniTask PreloadAsync(int count, CancellationToken cancellationToken = default)
         {
-            var instances = new List<GameObject>();
-            
             // Create the requested number of instances
-            for (int i = 0; i < count; i++)
+            for (int i = 0; i < count - inactiveObjects.Count; i++)
             {
                 if (cancellationToken.IsCancellationRequested) break;
                 
-                var instance = Get();
-                if (instance != null)
-                {
-                    instances.Add(instance);
-                }
-            }
-       
-            foreach (var instance in instances)
-            {
-                Return(instance);
+                var prefab = prefabAsset.GetReference();
+                var instance = Object.Instantiate(prefab, poolFolder);
+                var poolable = instance.GetComponent<IPoolable>() ?? instance.AddComponent<Poolable>();
+                poolable.Key = addressableKey;
+                instance.SetActive(false);
+                inactiveObjects.Push(instance);
             }
         }
         
