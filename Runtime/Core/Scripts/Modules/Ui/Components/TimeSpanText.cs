@@ -51,6 +51,7 @@ namespace OneDay.Core.Modules.Ui.Components
         {
             return timeFormat switch
             {
+                TimeFormat.MM_SS => timeSpan.ToString(@"mm\:ss"),
                 TimeFormat.HH_MM_SS => timeSpan.ToString(@"hh\:mm\:ss"),
                 TimeFormat.HH_MM => timeSpan.ToString(@"hh\:mm"),
                 TimeFormat.DD_MM_YYYY => timeSpan.ToString(@"dd\:mm\:yyyy"),
