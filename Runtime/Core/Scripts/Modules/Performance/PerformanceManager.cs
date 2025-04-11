@@ -11,10 +11,15 @@ namespace OneDay.Core.Modules.Performance
         void SetScreenDimmed(bool isDimmed);
         void SwitchToLowPerformance();
         void SwitchToHighPerformance();
+        void SwitchToMaxPerformance();
     }
     
     public class PerformanceManager : MonoBehaviour, IService, IPerformanceManager
     {
+        [SerializeField] private int lowPerformanceFps = 30;
+        [SerializeField] private int highPerformanceFps = 60;
+        [SerializeField] private int maxPerformanceFps = 999;
+        
         [SerializeField] private Image dimLayer;
 
         public UniTask Initialize()
@@ -24,19 +29,10 @@ namespace OneDay.Core.Modules.Performance
         }
         public UniTask PostInitialize() => UniTask.CompletedTask;
        
-        public void SetScreenDimmed(bool isDimmed)
-        {
-            dimLayer.DOFade(isDimmed ? 0.98f : 0, 1.0f);
-        }
+        public void SetScreenDimmed(bool isDimmed) => dimLayer.DOFade(isDimmed ? 0.98f : 0, 1.0f);
 
-        public void SwitchToLowPerformance()
-        {
-            Application.targetFrameRate = 15;
-        }
-
-        public void SwitchToHighPerformance()
-        {
-            Application.targetFrameRate = 60;
-        }
+        public void SwitchToLowPerformance() => Application.targetFrameRate = lowPerformanceFps;
+        public void SwitchToHighPerformance() => Application.targetFrameRate = highPerformanceFps;
+        public void SwitchToMaxPerformance() => Application.targetFrameRate = maxPerformanceFps;
     }
 }
