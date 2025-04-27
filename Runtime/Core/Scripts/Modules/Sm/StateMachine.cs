@@ -7,6 +7,15 @@ namespace OneDay.Core.Modules.Sm
 {
     public class StateMachine
     {
+        public class StateMachineEvents
+        {
+            public Action<IState> StateExited;
+            public Action<IState> StateEntered;
+        }
+
+        public StateMachineEvents Events { get; } = new();
+        public IState CurrentState => currentState;
+        
         private IState currentState;
 
         private Dictionary<Type, IState> states = new();
@@ -32,6 +41,7 @@ namespace OneDay.Core.Modules.Sm
                 {
                     currentState.ExitAsync().Forget();
                 }
+                Events.StateExited?.Invoke(currentState);
             }
 
             currentState = newState;
@@ -39,6 +49,7 @@ namespace OneDay.Core.Modules.Sm
             if (currentState != null)
             {
                 await currentState.EnterAsync(stateData);
+                Events.StateEntered?.Invoke(currentState);
                 await currentState.ExecuteAsync();
             }
         }
