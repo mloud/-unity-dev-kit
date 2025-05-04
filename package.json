@@ -1,6 +1,6 @@
 {
   "name": "com.oneday.unity-dev-kit",
-  "version": "0.0.32",
+  "version": "0.0.33",
   "displayName": "Unity Game Development Kit",
   "description": "A shared Unity package for reusable code.",
   "unity": "2020.3"
