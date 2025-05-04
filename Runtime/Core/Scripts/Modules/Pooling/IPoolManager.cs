@@ -36,5 +36,7 @@ namespace OneDay.Core.Modules.Pooling
         /// Clear a specific pool by addressable key
         /// </summary>
         void ClearPool(string addressableKey);
+
+        void ReturnAll();
     }
 }

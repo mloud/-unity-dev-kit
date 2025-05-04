@@ -61,6 +61,14 @@ namespace OneDay.Core.Modules.Pooling
             return pool.Get(parent);
         }
 
+        public void ReturnAll()
+        {
+            foreach (var (key, pool) in pools)
+            {
+                pool.ReturnAll();
+            }
+        }
+        
         public void Return(GameObject instance)
         {
             if (instance == null) return;

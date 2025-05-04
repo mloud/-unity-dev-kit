@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using Cysharp.Threading.Tasks;
 using OneDay.Core.Modules.Assets;
@@ -53,6 +54,15 @@ namespace OneDay.Core.Modules.Pooling
             poolable.OnGetFromPool();
             activeObjects.Add(instance);
             return instance;
+        }
+
+        public void ReturnAll()
+        {
+            var activeObjectCopy = activeObjects.ToList();
+            foreach (var gameObject in activeObjectCopy)
+            {
+                Return(gameObject);
+            }
         }
         
         public void Return(GameObject instance)
