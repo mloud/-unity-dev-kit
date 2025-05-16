@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using Cysharp.Threading.Tasks;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace OneDay.Core.Modules.Share
         public UniTask Initialize() => UniTask.CompletedTask;
         public UniTask PostInitialize() => UniTask.CompletedTask;
         
+        #if USE_NATIVE_SHARE_PLUGIN
         public async UniTask TakeScreenshotAndShare()
         {
             await UniTask.WaitForEndOfFrame(this);
@@ -44,5 +46,11 @@ namespace OneDay.Core.Modules.Share
             //if( NativeShare.TargetExists( "com.whatsapp" ) )
             //	new NativeShare().AddFile( filePath ).AddTarget( "com.whatsapp" ).Share();
         }
+        #else
+        public UniTask TakeScreenshotAndShare()
+        {
+            throw new NotImplementedException("Use USE_NATIVE_SHARE_PLUGIN symbol to start using native share plugin");
+        }
+        #endif
     }
 }
